@@ -1,8 +1,18 @@
-- name: Copy folder content recursively to remote
+name: Auto deploy to server
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
           local: indexanda
-          remote: ~/del
+          remote: adt_important/public/indexanda
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.PASSWORD }}
