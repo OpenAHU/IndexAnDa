@@ -1,2 +1,2 @@
-# indexanda
+# index-anda
  做安大人的快捷网址索引
