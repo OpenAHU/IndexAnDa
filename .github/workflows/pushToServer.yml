@@ -11,7 +11,7 @@ jobs:
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: indexanda
+          local: build
           remote: adt_important/public/indexanda
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
