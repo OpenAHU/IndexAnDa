@@ -67,7 +67,7 @@ function App() {
                 <Header className={styles.head}>
                     <div>
                         <Earth theme="outline" size="28" fill="#ffffff"/>
-                        <span className={styles.title}>THE INDEXANDA PROGRAM</span>
+                        <span className={styles.title}>INDEXANDA</span>
                     </div>
                 </Header>
                 <Layout className={styles.content}>
