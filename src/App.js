@@ -1,74 +1,87 @@
 import './App.css';
-import './style.css';
-import './script'
+import {Button, Card, Collapse, Layout} from "antd";
+import styles from './app.module.css'
+import {Earth} from "@icon-park/react";
+
+const {Panel} = Collapse;
+const {Header, Content, Footer} = Layout;
 
 function App() {
-  return (
-    <div className="App">
-        <h1>常用链接</h1>
-    <div class="faq-container">
-      <div class="faq active">
-        <h3 class="faq-title">
-          ⚡️最常用
-        </h3>
+    const indexData = [
+        {
+            name: '最常使用', indexSet: [
+                {name: '智慧安大', url: 'https://one.ahu.edu.cn/'},
+                {name: '教务系统(引导界面)', url: 'https://jwxt.ahu.edu.cn/'},
+                {name: '教务系统1', url: 'https://jwxt1.ahu.edu.cn/'},
+                {name: '教务系统3', url: 'https://jwxt3.ahu.edu.cn/'}
+            ]
+        }, {
+            name: '🔭科研常用', indexSet: [
+                {name: '博采', url: 'https://ahu.metaersp.com/'},
+            ]
+        }, {
+            name: '信息获取', indexSet: [
+                {name: '安徽大学官网', url: 'https://www.ahu.edu.cn/'},
+                {name: '安徽大学教务处', url: 'http://jwc.ahu.edu.cn/'},
+                {name: '安徽大学教学与科研单位', url: 'http://www.ahu.edu.cn/183/list.htm'}
+            ]
+        }, {
+            name: '🥰友情链接 ', indexSet: [
+                {name: '安大通安卓版', url: 'https://never2.top/andriod'},
+            ]
+        }
+    ]
+    const list = [];
+    let key = 0;
+    for (const e of indexData) {
+        const cardName = e.name;
+        const cardDetail = [];
+        for (const detail of e.indexSet) {
+            const name = detail.name;
+            const url = detail.url;
+            const title = <span className={styles.singleCardTitle}>{name}</span>
+            const tempDetail =
+                <div className={styles.singleCard} key={name}>
+                    <Card title={title} bordered={false}>
+                        <div>
+                            <span className={styles.cardContentUrl}>{url}</span>
+                            <span className={styles.cardAccessLink}><a href={url}><Button>访问</Button></a></span>
+                        </div>
+                    </Card>
+                </div>
+            ;
+            cardDetail.push(tempDetail);
+        }
+        const cardHead = <div className={styles.cardHead}>{cardName}</div>
+        const card = <Panel header={cardHead} key={key}>
+            <div className={styles.card}>
+                {cardDetail}
+            </div>
+        </Panel>
+        list.push(card);
+        key++;
+    }
+    return (
+        <div className="App">
+            <Layout>
+                <Header className={styles.head}>
+                    <div>
+                        <Earth theme="outline" size="28" fill="#ffffff"/>
+                        <span className={styles.title}>THE INDEXANDA PROGRAM</span>
+                    </div>
+                </Header>
+                <Layout className={styles.content}>
+                    <Content>
+                        <Collapse defaultActiveKey={[0]}>
+                            {list}
+                        </Collapse>
+                    </Content>
+                </Layout>
+                <Footer className={styles.foot}>©2022 Andatong Tech Group</Footer>
+            </Layout>
 
-        <p class="faq-text">
-          <a href="https://one.ahu.edu.cn/">智慧安大</a>
-          <a href="https://jwxt.ahu.edu.cn/">教务系统(引导界面)</a>
-          <a href="https://jwxt1.ahu.edu.cn/">教务系统1</a>
-          <a href="https://jwxt3.ahu.edu.cn/">教务系统3</a>
-        </p>
-
-        <button class="faq-toggle">
-          <i class="fas fa-chevron-down"></i>
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="faq">
-        <h3 class="faq-title">
-         🔭科研常用 
-        </h3>
-        <p class="faq-text">
-          <a href="https://ahu.metaersp.com/">博采</a>
-        </p>
-        <button class="faq-toggle">
-          <i class="fas fa-chevron-down"></i>
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      
-      <div class="faq">
-        <h3 class="faq-title">
-         ℹ️信息获取 
-        </h3>
-        <p class="faq-text">
-          <a href="https://www.ahu.edu.cn/">安徽大学官网</a> 
-          <a href="http://jwc.ahu.edu.cn/">安徽大学教务处</a> 
-          <a href="http://www.ahu.edu.cn/183/list.htm">安徽大学教学与科研单位</a> 
-
-        </p>
-        <button class="faq-toggle">
-          <i class="fas fa-chevron-down"></i>
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      
-      <div class="faq">
-        <h3 class="faq-title">
-         🥰友情链接 
-        </h3>
-        <p class="faq-text">
-         <a href="https://never2.top/andriod">安大通安卓版</a> 
-        </p>
-        <button class="faq-toggle">
-          <i class="fas fa-chevron-down"></i>
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-    </div>
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,67 @@
+.content{
+    min-height: calc(100vh - 64px - 64px);
+    padding: 15px 12vw 15px 12vw;
+}
+
+.title{
+    color: white;
+    font-size: xx-large;
+    font-family: Georgia;
+    padding: 0 0 0 10px;
+}
+
+.foot{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+}
+
+.head{
+    height: 64px;
+}
+
+.singleLink{
+    font-size: larger;
+    color: #66327C;
+}
+
+.cardHead{
+    font-size: large;
+}
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.singleCard{
+    margin: 10px 10px 10px 10px;
+    /*box-shadow: 3px 3px 5px rgba(0,0,0,0.2);*/
+    border-radius: 7px;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 5px 5px 5px 5px;
+    min-width: 300px;
+}
+
+.singleCard:hover{
+    border: 1px solid #B28FCE;
+}
+
+.cardContentUrl{
+    float: left;
+    display: inline-block;
+    line-height: 30px;
+    color: #91989F;
+}
+
+.cardAccessLink{
+    float: right;
+    display: inline-block;
+    margin: 0 0 0 15px;
+}
+
+.singleCardTitle{
+    color: #66327C;
+    font-size: large;
+}
