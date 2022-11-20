@@ -14,4 +14,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
     - name: rsync over SSH
-      run: rsync -r ./build/ ${{ secrets.SSH_USER }}@${{ secrets.HOST }}:andatong/indexahu/
+      run: rsync -r ./build/ ${{ secrets.SSH_USER }}@${{ secrets.HOST }}:andatong/indexahu/public/
